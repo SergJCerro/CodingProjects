@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/testing.png" />
+    <link rel="apple-touch-icon" href="/assets/testing.png" />
+    <meta name="apple-mobile-web-app-title" content="SergJCerro Github" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Sergio Cerritos" />
+    <meta property="og:title" content="Welcome " />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:description"
+      content="Welcome to my Page of Fun Projects ."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <title>Projects</title>
+    <style>
+      body {
+        padding-bottom: 4em;
+      }
+      .filter-list {
+        text-align: center;
+        padding: 5rem 0;
+        text-transform: uppercase;
+        width: 100%;
+      }
+
+      .filter-list h3 {
+        display: block;
+      }
+      .filter-list .btn {
+        cursor: pointer;
+        text-transform: uppercase;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0;
+      }
+      .filter-list .btn.active {
+        background: #2e7ab5;
+        color: #fff;
+      }
+
+      .product {
+        transition: 0.5s;
+        margin-bottom: 2em;
+      }
+      .product:hover {
+        -ms-transform: scale(0.9, 0.9);
+        -webkit-transform: scale(0.9, 0.9);
+        transform: scale(0.9, 0.9);
+        z-index: 9;
+      }
+      .product img {
+        width: 100%;
+        height: 400px;
+      }
+      .product .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 0.5em 1em;
+        margin: 0 0 0.5em 0;
+        border-bottom: 2px solid #2d7bb5;
+        background-color: #fff;
+      }
+      .product .info .name {
+        flex: 2 0 0;
+        font-size: 1.3em;
+        font-weight: 400;
+        line-height: 1.4em;
+        color: #2d7bb5;
+      }
+      .product .info .price {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #75b546;
+      }
+      .product .info .price .original-price {
+        color: #f54336;
+        text-decoration: line-through;
+        font-size: 0.7em;
+      }
+      .product .links {
+        display: flex;
+        flex-direction: row;
+        padding: 0.5em 1em;
+        background-color: #fff;
+      }
+      .product .links .more {
+        width: 150px;
+        padding: 0.5em;
+        text-transform: uppercase;
+        text-align: center;
+        color: #fff;
+        background-color: #2e7ab5;
+      }
+      .product .links .more:hover {
+        text-decoration: none;
+        opacity: 0.9;
+      }
+      .product .links .add-to {
+        margin-left: auto;
+        padding: 0.5em;
+        color: #fff;
+        font-weight: 600;
+        background-color: #75b545;
+        text-transform: uppercase;
+      }
+      .product .links .add-to:hover {
+        text-decoration: none;
+        opacity: 0.9;
+      }
+      h1{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Project Display Page</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="filter-list">
+            <h3>Filter</h3>
+            <button
+              class="btn btn-default filter-button active"
+              data-filter="all"
+            >
+              All
+            </button>
+            <button class="btn btn-default filter-button" data-filter="MobileS">
+              Mobile
+            </button>
+            <button class="btn btn-default filter-button" data-filter="PC">
+              PC
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 product filter PC"
+          >
+            <a href="/projects/canvas.html">
+              <img
+                src="/assets/color-palette.png"
+                title="Product name"
+                alt="Drawing On Canva"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Drawing On Canva</div>
+            </div>
+          </div>
+          <div
+            class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 product filter PC"
+          >
+            <a href="/design/32">
+              <img
+                src="/assets/mole.png"
+                title="Product name"
+                alt="Product name"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Whack A Mole</div>
+            </div>
+          </div>
+          <div
+            class="
+              col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12
+              product
+              filter
+              PC
+            "
+          >
+            <a href="/design/32">
+              <img
+                src="/assets/drum-kit.png"
+                title="Product name"
+                alt="Product name"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Drum kit</div>
+            </div>
+          </div>
+          <div
+            class="
+              col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12
+              product
+              filter
+              PC
+            "
+          >
+            <a href="/design/32">
+              <img
+                src="/assets/speech-bubble.png"
+                title="Product name"
+                alt="Product name"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Guess the Word</div>
+            </div>
+          </div>
+          <div
+            class="
+              col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12
+              product
+              filter
+              PC
+            "
+          >
+            <a href="/design/32">
+              <img
+                src="/assets/birthday-card.png"
+                title="Product name"
+                alt="Product name"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Birthday Card 1</div>
+            </div>
+          </div>
+          <div
+            class="
+              col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12
+              product
+              filter
+              PC
+            "
+          >
+            <a href="/design/32">
+              <img
+                src="/assets/fireworks.png"
+                title="Product name"
+                alt="Product name"
+              />
+            </a>
+            <div class="info">
+              <div class="name">Birthday Fire Works</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".filter-button").click(function () {
+          var value = $(this).attr("data-filter");
+
+          if (value == "all") {
+            $(".filter").show("1000");
+          } else {
+            $(".filter")
+              .not("." + value)
+              .hide("3000");
+            $(".filter")
+              .filter("." + value)
+              .show("3000");
+          }
+
+          if ($(".filter-button").removeClass("active")) {
+            $(this).removeClass("active");
+          }
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>

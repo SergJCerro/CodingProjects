@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../assets/mole.png" />
+    <link rel="apple-touch-icon" href="../assets/mole.png" />
+    <meta name="apple-mobile-web-app-title" content="SergJCerro Github" />
+    <title>Whack a Mole</title>
+    <meta
+      name="description"
+      content="Welcome to my Github Page of Fun Projects ."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Sergio Cerritos" />
+    <meta property="og:title" content="Welcome " />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:description"
+      content="Welcome to my Github Page of Fun Projects ."
+    />
+    <meta name="twitter:card" content="summary" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        text-align: center;
+      }
+
+      .score {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0 3rem;
+        line-height: 1;
+        border-radius: 1rem;
+      }
+
+      .game {
+        width: 600px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+      }
+
+      .hole {
+        flex: 1 0 33.33%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hole:after {
+        display: block;
+        background: url("https://cdn.glitch.com/2053ef46-d941-493d-b44b-5a4b9cdafe33%2Fdirt.svg?v=1617140796027")
+          bottom center no-repeat;
+        /*I googled it ~ SVG stands for Scalable Vector Graphics. SVG is used to define graphics for the Web. SVG is a W3C recommendation */
+        background-size: contain;
+        content: "";
+        width: 100%;
+        height: 70px;
+        position: absolute;
+        z-index: 2;
+        bottom: -30px;
+      }
+
+      .mole {
+        background: url("https://cdn.glitch.com/2053ef46-d941-493d-b44b-5a4b9cdafe33%2Fmole.svg?v=1617140770604")
+          bottom center no-repeat;
+        background-size: 60%;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s;
+      }
+
+      .hole.up .mole {
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Whack-a-mole! <br />
+      Score:<span class="score">0</span>
+    </h1>
+
+    <button onclick="Start()">Start!</button>
+
+    <div class="game">
+      <div class="hole hole1">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole2">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole3">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole4">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole5">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole6">
+        <div class="mole"></div>
+      </div>
+    </div>
+
+    <script>
+      const holes = document.querySelectorAll(".hole");
+      const scoreBoard = document.querySelector(".score");
+      const moles = document.querySelectorAll(".mole");
+      let lastHole;
+      let timeUp = false;
+      let score = 0;
+
+      function randomTime(min, max) {
+        //Random Time for the Mole to peep
+        return Math.round(Math.random() * (max - min) + min);
+      }
+
+      function randomHole(holes) {
+        //Randome Hole the mole will peep from
+        const idx = Math.floor(Math.random() * holes.length);
+        const hole = holes[idx]; //Random Hole that the Mole will peep from
+        if (hole === lastHole) {
+          return randomHole(holes);
+        }
+        lastHole = hole;
+        return hole;
+      }
+
+      function peep() {
+        //Random peep
+        const time = randomTime(200, 1000);
+        const hole = randomHole(holes);
+        hole.classList.add("up");
+        setTimeout(() => {
+          hole.classList.remove("up");
+          if (!timeUp) peep();
+        }, time);
+      }
+      function Start() {
+        startGame();
+        clock();
+      }
+
+      var start;
+      function startGame() {
+        //starts the game
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        score = 0;
+        peep();
+        setTimeout(() => (timeUp = true), 10000); //Time out is 10 seconds which is 10,000 milliseconds
+      }
+
+      function bonk(e) {
+        if (!e.isTrusted) return; // cheater!
+        score++;
+        this.parentNode.classList.remove("up");
+        scoreBoard.textContent = score;
+      }
+
+      moles.forEach((mole) => mole.addEventListener("click", bonk));
+    </script>
+  </body>
+</html>
